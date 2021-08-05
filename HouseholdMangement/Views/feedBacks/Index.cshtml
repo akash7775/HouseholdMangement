@@ -1,0 +1,31 @@
+﻿@model IEnumerable<HouseholdMangement.Models.feedBack>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Feed Back </h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-4">
+                <h1>@Html.DisplayFor(modelItem => item.Name)</h1>
+                <h3>@Html.DisplayFor(modelItem => item.Contact)</h3>
+                <p>@Html.DisplayFor(modelItem => item.Message)</p>
+                <div class="btn btn-primayr"><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></div>
+                <div class="btn btn-primayr"><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></div>
+            </div>
+
+
+        }
+
+    </div>
+
+</div>
